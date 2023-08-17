@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.page {
+  min-height: cal(100vh - 80px);
+  background-color: rgb(247, 249, 250)
+}
