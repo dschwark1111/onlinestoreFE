@@ -41,7 +41,7 @@ function Catalog() {
 
     return (
         <div className="catalog page">
-            <h1>Check out our {products.length} amazing products in our catalog!</h1>
+            <h1>Check out our {products.length} amazing products!</h1>
             <br />
             <button onClick={clearFilter} className="btn btn-sm btn-dark btn-filter">All</button>
             {categories.map(c => <button key={c} onClick={() => filter(c)} className="btn btn-sm btn-dark btn-filter">{c}</button>)}

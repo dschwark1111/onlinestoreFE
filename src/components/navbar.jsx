@@ -1,7 +1,16 @@
 import "./navbar.css"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Product from "./product";
+import { useState } from "react";
+import DataContext from "../store/datacontext";
+import { useContext } from "react";
+import Cart from "../pages/cart";
+import GlobalState from "../store/globalstate";
 
 function Navbar() {
+  const user = useContext(DataContext).user;
+  const Cart = useContext(DataContext).cart;
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -42,9 +51,15 @@ function Navbar() {
               </Link>
             </li>
           </ul>
+
+
+
           <form className="d-flex" role="search">
             <Link className="btn btn-dark" type="submit" to="/cart">
-              Cart
+
+              {Cart.length}
+              <i class="fa-solid fa-cart-shopping"></i>
+
             </Link>
           </form>
         </div>
