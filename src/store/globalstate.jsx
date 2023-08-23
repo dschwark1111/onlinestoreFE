@@ -6,11 +6,21 @@ function GlobalState(props) {
     const [user, setUser] = useState({ name: "Dorothy", id: 123, email: "dorothy.schwark@gmail.com" });
 
     function addCart(prod) {
-        console.log("global add");
         let copy = [...cart];
-        copy.push(prod);
-        setCart(copy);
 
+        let found = false;
+
+        for (let i = 0; i < copy.length; i++) {
+            let prodInCart = copy[i];
+            if (prod.id === prodInCart.id) {
+                prodInCart.quantity += prod.quantity;
+                found = true;
+            }
+        }
+        if (!found) {
+            copy.push(prod);
+        }
+        setCart(copy);
     }
 
     function removeCart() {
@@ -28,7 +38,7 @@ function GlobalState(props) {
             {props.children}
         </DataContext.Provider>
     );
-
 }
+
 
 export default GlobalState;

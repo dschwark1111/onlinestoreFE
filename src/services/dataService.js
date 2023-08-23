@@ -4,7 +4,7 @@ let catalog = [
         "category" : "boards",
         "price" : 12.99,
         "image" : "addboard.jpg",
-        "_id" : 1
+        "_id" : "1"
     },
 
     {
@@ -12,7 +12,7 @@ let catalog = [
         "category" : "other",
         "price" : 14.99,
         "image" : "postit.jpeg",
-        "_id" : 2
+        "_id" : "2"
     },
 
     {
@@ -20,7 +20,7 @@ let catalog = [
         "category" : "other",
         "price" : 16.99,
         "image" : "abcflashcard.jpg",
-        "_id" : 3
+        "_id" : "3"
     },
 
     {
@@ -28,35 +28,35 @@ let catalog = [
         "category" : "boards",
         "price" : 17.99,
         "image" : "abcpuz.jpg",
-        "_id" : 4
+        "_id" : "4"
     },
     {
         "title" : "Book Earrings",
         "category" : "earrings",
         "price" : 18.99,
         "image" : "bookear.JPG",
-        "_id" : 5
+        "_id" : "5"
     },
     {
         "title" : "Ghost Earrings",
         "category" : "earrings",
         "price" : 19.99,
         "image" : "ghostear.JPG",
-        "_id" : 6
+        "_id" : "6"
     },
     {
         "title" : "Multiplication Board",
         "category" : "boards",
         "price" : 12.99,
         "image" : "mulboard.jpg",
-        "_id" : 7
+        "_id" : "7"
     },
     {
         "title" : "Skeleton Earrings",
         "category" : "earrings",
         "price" : 10.99,
         "image" : "skelear.JPG",
-        "_id" : 8
+        "_id" : "8"
     },
 ]
 

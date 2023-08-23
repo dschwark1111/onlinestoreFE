@@ -1,15 +1,24 @@
 import "./navbar.css"
 import { Link } from "react-router-dom";
-import Product from "./product";
-import { useState } from "react";
 import DataContext from "../store/datacontext";
 import { useContext } from "react";
-import Cart from "../pages/cart";
-import GlobalState from "../store/globalstate";
+
+
 
 function Navbar() {
   const user = useContext(DataContext).user;
-  const Cart = useContext(DataContext).cart;
+  const cart = useContext(DataContext).cart;
+
+  function getProductCount() {
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      let prod = cart[i];
+      total += prod.quantity;
+    }
+
+
+    return total;
+  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -56,8 +65,7 @@ function Navbar() {
 
           <form className="d-flex" role="search">
             <Link className="btn btn-dark" type="submit" to="/cart">
-
-              {Cart.length}
+              {getProductCount()}
               <i class="fa-solid fa-cart-shopping"></i>
 
             </Link>
