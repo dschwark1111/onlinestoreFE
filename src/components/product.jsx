@@ -25,9 +25,10 @@ function Product(props){
     function addToCart() {
         const prodWithQty = {
             ...props.data,
-            quanity: quanity
+            quantity: quanity
         };
         addCart(prodWithQty);
+        console.log(prodWithQty);
     }
 
     return(

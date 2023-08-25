@@ -12,7 +12,7 @@ function GlobalState(props) {
 
         for (let i = 0; i < copy.length; i++) {
             let prodInCart = copy[i];
-            if (prod.id === prodInCart.id) {
+            if (prod._id === prodInCart._id) {
                 prodInCart.quantity += prod.quantity;
                 found = true;
             }

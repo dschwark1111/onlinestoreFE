@@ -7,6 +7,7 @@
         border: 1px solid lightgray;
         border-radius: 4px;
         padding: 15px;
+        padding-bottom: 20px;
         margin: auto;
         background-color: lightgray;
         margin-left: 40px;
@@ -23,3 +24,7 @@
         padding-top: 15px;
     
     }
+div.admin {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

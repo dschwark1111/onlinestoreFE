@@ -1,0 +1,14 @@
+.about img {
+    max-width: 400px;
+}
+
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.aboutbutton {
+    padding-top: 20px;
+}

@@ -1,0 +1,18 @@
+div.footer {
+    background-color: lightgray;
+    padding-top: 10px;
+    font-weight: bold;
+    justify-content: space-evenly;
+
+}
+
+div.socialicons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: ;
+}
+
+i {
+    padding: 10px;
+}
