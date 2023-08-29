@@ -12,9 +12,9 @@ function ProductInCart(props) {
             <div>
                 <h5>{props.data.title}</h5>
             </div>
-            <label>${props.data.category}</label>
+            <label>{props.data.category}</label>
             <label>${props.data.price.toFixed(2)}</label>
-            <label>${props.data.quantity}</label>
+            <label>{props.data.quantity}</label>
             <label>${getTotal()}</label>
 
             <button className="btn btn-sm btn btn-dark">Remove</button>

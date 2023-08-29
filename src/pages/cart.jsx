@@ -36,7 +36,7 @@ function Cart() {
             </div>
             <div className="side-menu">
                 <h3>Total</h3>
-                <h3>{getTotal()}</h3>
+                <h3>${getTotal()}</h3>
             </div>
         </div>
     </div>

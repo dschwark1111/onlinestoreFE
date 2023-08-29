@@ -1,9 +1,22 @@
-import { useState, useState0 } from 'react';
+import { useEffect, useState } from 'react';
 import "./admin.css";
+import DataService from '../services/dataService';
+
 
 
 function Admin() {
     const [product, setProduct] = useState({ title: '', category: '', image: '', price: '' });
+    const [allProducts, setAllProducts] = useState([]);
+
+    useEffect(function () {
+        loadData();
+    }, []);
+
+    async function loadData() {
+        let service = new DataService();
+        const prods = await service.getProducts();
+        setAllProducts(prods);
+    }
 
     function handleInputChange(e) {
 
@@ -18,6 +31,11 @@ function Admin() {
 
     function saveProduct() {
         console.log(product);
+        let copy = { ...product };
+        copy.price = parseFloat(copy.price);
+        let service = new DataService();
+        service.saveProduct(copy);
+
 
         function clearForm() {
             setProduct({ title: '', category: '', image: '', price: '' });
@@ -47,9 +65,17 @@ function Admin() {
             <div className="admin button" onClick={saveProduct}>
                 <button type="button" className="btn btn-dark">Save Product</button>
             </div>
+
+            <hr />
+
+            <ul className='product-list'>
+                {allProducts.map(prod => <li key={prod._id}>{prod.title}  ${prod.price} <button className='btn btn btn-dark'> Remove</button></li>)}
+            </ul>
         </div>
     </div>
     );
+
+
 }
 
 export default Admin;

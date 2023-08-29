@@ -38,7 +38,7 @@ function Product(props){
             <div className="prices">
                 <label>{getPrice}</label>
                 <label>Total</label>
-                <label>{getTotal()}</label>
+                <label>${getTotal()}</label>
             </div>
             <QuantityPicker onChange={handleQuantityChange} />
 

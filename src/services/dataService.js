@@ -1,3 +1,4 @@
+import axios from "axios";
 let catalog = [
     {
         "title" : "Addition Board",
@@ -48,7 +49,7 @@ let catalog = [
         "title" : "Multiplication Board",
         "category" : "boards",
         "price" : 12.99,
-        "image" : "mulboard.jpg",
+        "image" : "mulboard.jpeg",
         "_id" : "7"
     },
     {
@@ -61,8 +62,24 @@ let catalog = [
 ]
 
 class DataService{
-    getProducts(){
-        return catalog;
+serverURL = "http://127.0.0.1:5000";
+
+    async getProducts(){
+        //uncomment next line to work with local data
+        //return catalog;
+
+        //call server
+        const response = await axios.get (this.serverURL + "/api/products");
+        return response.data;
+    }
+    async getCategories(){
+        const response = await axios.get(this.serverURL + "/api/categories");
+        return response.data;
+    }
+
+    async saveProduct(prod){
+        const response = await axios.post(this.serverURL + "/api/products", prod);
+        return response.data;
     }
 }
 
