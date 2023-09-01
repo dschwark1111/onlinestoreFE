@@ -1,4 +1,5 @@
 import axios from "axios";
+import { act } from "react-dom/test-utils";
 let catalog = [
     {
         "title" : "Addition Board",
@@ -79,6 +80,15 @@ serverURL = "http://127.0.0.1:5000";
 
     async saveProduct(prod){
         const response = await axios.post(this.serverURL + "/api/products", prod);
+        return response.data;
+    }
+
+    async saveCoupon(coupon){
+        const response = await axios.post(this.serverURL + '/api/coupons', coupon);
+        return response.data;
+    }
+    async deleteProduct (id){
+        const response = await axios.delete(this.serverURL + "/api/products/id/" + id);
         return response.data;
     }
 }

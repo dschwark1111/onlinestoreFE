@@ -6,6 +6,7 @@ import DataService from '../services/dataService';
 
 function Admin() {
     const [product, setProduct] = useState({ title: '', category: '', image: '', price: '' });
+    const [coupon, setCoupon] = useState({ code: "", discount: "" });
     const [allProducts, setAllProducts] = useState([]);
 
     useEffect(function () {
@@ -29,6 +30,14 @@ function Admin() {
         setProduct(copy);
     }
 
+    function handleCouponChange(e) {
+        const val = e.target.value;
+        const name = e.target.name;
+
+        let copy = { ...coupon };
+        copy[name] = val;
+        setCoupon(copy);
+    }
     function saveProduct() {
         console.log(product);
         let copy = { ...product };
@@ -41,6 +50,22 @@ function Admin() {
             setProduct({ title: '', category: '', image: '', price: '' });
         }
     }
+
+    function saveCoupon() {
+        let service = new DataService();
+        service.saveCoupon(coupon);
+
+
+    }
+
+    function removeProduct(id) {
+        let service = new DataService();
+        service.deleteProduct(id);
+        let copy = allProducts.filter(prod => prod._id !== id);
+        setAllProducts(copy);
+    }
+
+
     return (<div className="admin">
         <h1>Store Management</h1>
 
@@ -69,8 +94,24 @@ function Admin() {
             <hr />
 
             <ul className='product-list'>
-                {allProducts.map(prod => <li key={prod._id}>{prod.title}  ${prod.price} <button className='btn btn btn-dark'> Remove</button></li>)}
+                {allProducts.map(prod => <li key={prod._id}>{prod.title}  ${prod.price} <button onClick={() => removeProduct(prod._id)} className='btn btn btn-dark'> Remove</button></li>)}
             </ul>
+        </div>
+        <div className='coupon-form'>
+            <div>
+                <label className="form-lable">Code</label>
+                <input onChange={handleCouponChange} name="code" type="text" className='form-control' />
+            </div>
+            <div>
+
+                <label className="form-lable">Discount</label>
+                <input onChange={handleCouponChange} name="discount" type="text" className='form-control' />
+            </div>
+
+            <div className='mt-2'>
+                <button onClick={saveCoupon} className='btn btn-dark'>Save Coupon</button>
+            </div>
+
         </div>
     </div>
     );
